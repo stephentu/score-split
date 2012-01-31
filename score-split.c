@@ -100,6 +100,7 @@ int main(int argc, char** argv) {
   float f;
   float* scores;
 
+  j = 0;
   filename = NULL;
   scores = NULL;
   for (i = 1; i < argc;) {
@@ -145,6 +146,10 @@ int main(int argc, char** argv) {
       }
       filename = argv[i + 1];
       i = i + 2;
+    } else {
+      fprintf(stderr, "Unknown option: %s\n", argv[i]);
+      fprintf(stderr, "%s\n", usage);
+      return 1;
     }
   }
 
